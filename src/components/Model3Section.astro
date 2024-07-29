@@ -1,0 +1,42 @@
+<section
+    class="landing-section bg-black h-screen text-center overflow-hidden relative"
+    color-header="black"
+>
+    <div class="z-30 relative h-full flex flex-col">
+        <header>
+            <h2 class="text-black pt-32 text-[38px] font-medium">
+                Model 3
+            </h2>
+            <h3 class="text-black text-[22px] font-medium">
+                Desde 26.990 €
+            </h3>
+            <p class="text-black text-xs">
+                Precio con la aplicación de los programas Tesla Boost e incentivos de movilidad eléctrica¹
+            </p>
+        </header>
+
+        <footer class="flex flex-grow flex-wrap flex-col justify-end pb-16">
+            <!-- Con el flex grow le decimos que ocupe todo el alto que pueda, para que el header se quede arriba, ya que ocupa solo lo necesario. Y con el justify-end le decimos que se quede abajo del todo, y con el padding de 24 hacemos que suba un poquito para que no quede en el piso -->
+            <div class="flex mx-auto gap-x-6">
+                <a
+                    class="border[3px] border-[#222222] bg-[#222222] text-sm rounded font-medium text-white px-24 py-2 inline-block hover:bg-[#393c41] hover:border-[#393c41] hover:text-white transition-colors"
+                    href="#">Encargar</a
+                >
+                <a
+                    class="border[3px] border-white bg-white text-sm rounded font-medium text-black px-12 py-2 hover:bg-[#e2e3e3] hover:border-[#e2e3e3] hover:text-black transition-colors inline-flex justify-center items-center"
+                    href="#">Prueba de conducción</a
+                >
+            </div>
+            <div class="pt-4">
+                <a
+                    class="underline text-[11px] text-black px-12 py-2 inline-block hover:decoration-2 transition-colors"
+                    href="#">Disponible con Moves III</a
+                >
+            </div>
+        </footer>
+    </div>
+
+    <div class="absolute top-0 bottom-0 z-10 w-full h-full">
+        <img id="bg-image-modely" src="/public/model-3.avif" alt="Model Y" class="h-full w-full object-cover object-center">
+    </div>
+</section>

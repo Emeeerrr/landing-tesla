@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LandingHeader from '../components/LandingHeader.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ModelYSection from '../components/ModelYSection.astro';
+import Model3Section from '../components/Model3Section.astro';
+import ModelSSection from '../components/ModelSSection.astro';
+import ModelXSection from '../components/ModelXSection.astro';
+import SolarSection from '../components/SolarSection.astro';
+import AccesoriosSection from '../components/AccesoriosSection.astro';
+import LandingFooter from '../components/LandingFooter.astro';
+---
+
+<Layout title="Tesla - Emerson - Elon Musk.">
+	
+	<LandingHeader/>
+	<main class="snap-y snap-mandatory relative w-full h-screen overflow-auto scroll-smooth">	
+		<div class="snap-center">
+			<ModelYSection/>
+		</div>
+		<div class="snap-center">
+			<Model3Section/>
+		</div>
+		<div class="snap-center">
+			<ModelSSection/>
+		</div>
+		<div class="snap-center">
+			<ModelXSection/>
+		</div>
+		<div class="snap-center">
+			<HeroSection/>
+		</div>
+		<div class="snap-center">
+			<SolarSection/>
+		</div>
+		<div class="snap-center">
+			<AccesoriosSection/>
+		</div>
+		<div class="snap-center">
+			<LandingFooter/>
+		</div>
+	</main>
+	
+</Layout>

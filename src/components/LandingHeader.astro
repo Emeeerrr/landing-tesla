@@ -1,0 +1,99 @@
+---
+import Logo from "./Logo.astro";
+import boxIcon from "boxicons";
+---
+
+<header
+    id="landing-header"
+    class="py-1 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-black"
+>
+    <div class="flex flex-grow basis-0">
+        <Logo />
+    </div>
+
+    <nav>
+        <ul
+            class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+        >
+            <li><a href="#">Vehículos</a></li>
+            <li><a href="#">Energía</a></li>
+            <li><a href="#">Carga</a></li>
+            <li><a href="#">Descubrir</a></li>
+            <li><a href="#">Tienda</a></li>
+        </ul>
+    </nav>
+
+    <nav class="flex flex-grow justify-end basis-0">
+        <ul
+            class="flex text-sm [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-2 [&>li>a]:py-2"
+        >
+            <li><a href="#"><svg class="transition-colors duration-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;transform: ;msFilter:;"><path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path></svg></a></li>
+            <li><a href="#"><svg class="transition-colors duration-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zM4 12c0-.899.156-1.762.431-2.569L6 11l2 2v2l2 2 1 1v1.931C7.061 19.436 4 16.072 4 12zm14.33 4.873C17.677 16.347 16.687 16 16 16v-1a2 2 0 0 0-2-2h-4v-3a2 2 0 0 0 2-2V7h1a2 2 0 0 0 2-2v-.411C17.928 5.778 20 8.65 20 12a7.947 7.947 0 0 1-1.67 4.873z"></path></svg></a></li>
+            <li><a href="#"><svg class="transition-colors duration-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;transform: ;msFilter:;"><path d="M12 2A10.13 10.13 0 0 0 2 12a10 10 0 0 0 4 7.92V20h.1a9.7 9.7 0 0 0 11.8 0h.1v-.08A10 10 0 0 0 22 12 10.13 10.13 0 0 0 12 2zM8.07 18.93A3 3 0 0 1 11 16.57h2a3 3 0 0 1 2.93 2.36 7.75 7.75 0 0 1-7.86 0zm9.54-1.29A5 5 0 0 0 13 14.57h-2a5 5 0 0 0-4.61 3.07A8 8 0 0 1 4 12a8.1 8.1 0 0 1 8-8 8.1 8.1 0 0 1 8 8 8 8 0 0 1-2.39 5.64z"></path><path d="M12 6a3.91 3.91 0 0 0-4 4 3.91 3.91 0 0 0 4 4 3.91 3.91 0 0 0 4-4 3.91 3.91 0 0 0-4-4zm0 6a1.91 1.91 0 0 1-2-2 1.91 1.91 0 0 1 2-2 1.91 1.91 0 0 1 2 2 1.91 1.91 0 0 1-2 2z"></path></svg></a></li>
+        </ul>
+    </nav>
+
+    <div 
+    id="menu-backdrop" 
+    class={`
+        absolute bg-black/5 backdrop-blur-lg rounded
+        translate-x-[var(--left)] translate-y-[var(--top)]
+        left-0 top-0
+        w-[var(--width)] h-[var(--height)]
+        transition-all duration-400
+        ease-in-out opacity-0 -z-10
+    `}
+    />
+</header>
+
+<script>
+    const listItems = document.querySelectorAll("#landing-header li")
+    const menuBackdrop = document.querySelector("#menu-backdrop") as HTMLElement
+    
+    listItems.forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+            const { left, top, width, height } = item.getBoundingClientRect()
+            // const { clientHeight, clientWidth } = item
+
+            // console.log({left, top, width, height});
+            // console.log({clientHeight, clientWidth});
+
+            menuBackdrop.style.setProperty("--left", `${left}px`)
+            menuBackdrop.style.setProperty("--top", `${top}px`)
+            menuBackdrop.style.setProperty("--width", `${width}px`)
+            menuBackdrop.style.setProperty("--height", `${height}px`)
+
+            menuBackdrop.style.opacity = "1"
+            menuBackdrop.style.visibility = "visible"
+        })
+
+        item.addEventListener("mouseleave", () => {
+            menuBackdrop.style.opacity = "0"
+            menuBackdrop.style.visibility = "hidden"
+        })
+    })
+</script>
+
+<script>
+    const headerElement = document.querySelector(
+        "#landing-header",
+    ) as HTMLElement;
+    const observerOptions = {
+        root: null, // default to viewport
+        rootMargin: "0px", //En cuanto se vea el elemento
+        threshold: 0.9, // Porcentaje de visibilidad
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const { isIntersecting } = entry;
+            if (isIntersecting) {
+                const color = entry.target.getAttribute("color-header");
+                headerElement.style.color = color;
+            }
+        });
+    }, observerOptions);
+
+    const sectionsElements = document.querySelectorAll(".landing-section");
+    sectionsElements.forEach((section) => observer.observe(section));
+</script>

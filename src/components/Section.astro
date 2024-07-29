@@ -1,0 +1,44 @@
+---
+const { color1,color2, title, subtitle, paragraph } = Astro.props
+const textColor1 = `text-${color1}`
+const textColor2 = `text-${color2}`
+
+---
+
+
+<section
+    class="landing-section bg-black h-screen text-center overflow-hidden relative"
+    color-header={color1}
+>
+    <div class="z-30 relative h-full flex flex-col">
+        <header>
+            <h2 class={`${textColor1} pt-32 text-[38px] font-medium`}>
+                {title}
+            </h2>
+            <h3 class={`${textColor1} text-[22px] font-medium`}>
+                {subtitle}
+            </h3>
+            <p class={`${textColor1}text-xs`}>
+                {paragraph}
+            </p>
+        </header>
+
+        <footer class="flex flex-grow flex-wrap flex-col justify-end pb-16">
+            <!-- Con el flex grow le decimos que ocupe todo el alto que pueda, para que el header se quede arriba, ya que ocupa solo lo necesario. Y con el justify-end le decimos que se quede abajo del todo, y con el padding de 24 hacemos que suba un poquito para que no quede en el piso -->
+            <div class="flex mx-auto gap-x-6">
+                <slot class="footer"></slot>
+            </div>
+            <div class="pt-4">
+                <slot class="footer-moves"></slot>
+                <a
+                    class={`underline text-[11px] ${textColor1} px-12 py-2 inline-block hover:decoration-2 transition-colors`}
+                    href="#">Disponible con Moves III</a
+                >
+            </div>
+        </footer>
+    </div>
+
+    <div class="absolute top-0 bottom-0 z-10 w-full h-full">
+        <sloot name="background"></sloot>
+    </div>
+</section>

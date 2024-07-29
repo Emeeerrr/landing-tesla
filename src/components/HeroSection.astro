@@ -1,0 +1,34 @@
+<section
+    class="landing-section bg-black h-screen text-center overflow-hidden relative"
+    color-header="white"
+>
+    <div class="z-30 relative h-full flex flex-col">
+        <header>
+            <h2 class="text-white pt-40 text-[40px] font-medium">
+                Disfrute de Tesla
+            </h2>
+            <p class="text-white text-sm">
+                Programe una prueba de conducción hoy mismo.
+            </p>
+        </header>
+
+        <footer class="flex flex-grow flex-wrap flex-col justify-end pb-20">
+            <!-- Con el flex grow le decimos que ocupe todo el alto que pueda, para que el header se quede arriba, ya que ocupa solo lo necesario. Y con el justify-end le decimos que se quede abajo del todo, y con el padding de 24 hacemos que suba un poquito para que no quede en el piso -->
+            <div>
+                <a
+                    class="border-[3px] border-white bg-white/5 backdrop-blur-sm text-sm rounded font-medium text-white px-12 py-2 inline-block hover:bg-white hover:text-black transition-colors"
+                    href="#">Prueba de conducción</a
+                >
+            </div>
+        </footer>
+    </div>
+
+    <div class="absolute top-0 bottom-0 h-full z-10 w-full">
+        <video
+            class="object-center object-cover h-full w-full"
+            src="/public/enjoy-tesla.webm"
+            autoplay
+            muted
+            loop></video>
+    </div>
+</section>
